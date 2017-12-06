@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'El Baul Dorado') }}</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -72,9 +72,11 @@
         </nav>
 
         @yield('content')
-    </div>
 
+    </div>
+      @extends ('layouts.foot')
     <!-- Scripts -->
+
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
