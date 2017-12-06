@@ -35,3 +35,5 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/productos','ProductsController@index');
