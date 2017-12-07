@@ -6,16 +6,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-  protected $fillable = ['ProductID', 'ProductName', 'ProductPrice', 'ProductShortDesc', 'ProductLongDesc', 'ProductImage', 'ProductCategoryID', 'ProductCategoryBrandID', 'ProductCategoryGenreID', 'ProductCategoryColorID'];
+    // Agregar nombre de la tabla productos
+  protected $table = 'products';
+
+  protected $guarded = [];
 
   public function category() {
-    return $this->belongsTo('\App\Category', 'ProductCategoryID', 'ProductID');
+    return $this->belongsTo('\App\Category', 'category_id', 'id');
   }
 
   public function getPrice() {
-    $ganancia
-      return $this->ProductPrice + ($this->ProductPrice $ganacia / 100);
+	   return $this->cost + ($this->cost * $this->profit_margin / 100);
   }
+
 
 
 }

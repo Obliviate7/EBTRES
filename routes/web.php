@@ -1,4 +1,4 @@
-<?php
+  <?php
 
 /*
 |--------------------------------------------------------------------------
@@ -18,22 +18,33 @@ Route::get('/', function () {
 // Route::get('/', 'HomeController@index');
 // - Auth
 // Authentication Routes...
-Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::get('ingresar', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
-Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+Route::post('desloguear', 'Auth\LoginController@logout')->name('logout');
 
 // Registration Routes...
-Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+Route::get('registro', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('register', 'Auth\RegisterController@register');
 
 // Password Reset Routes...
-Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+Route::get('password/resetear', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
 Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
-Auth::routes();
+
+// NO MODIFICAR EL ORDER
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/productos','ProductsController@index');
+
+Route::get('/productos/agregar', 'ProductsController@create');
+Route::post('/productos/agregar', 'ProductsController@store');
+
+Route::get('/productos/{id}', 'ProductsController@show');
+
+Route::delete('/productos/{id}', 'ProductsController@destroy');
+
+Route::get('/productos/{id}/edit', 'ProductsController@edit');
+Route::patch('/productos/{id}', 'ProductsController@update');
