@@ -9,6 +9,8 @@ class Product extends Model
     // Agregar nombre de la tabla productos
   protected $table = 'products';
 
+  protected $fillable = ['name', 'cost', 'profit_margin', 'category_id', 'fotopath'];
+
   protected $guarded = [];
 
   public function category() {

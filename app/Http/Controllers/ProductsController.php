@@ -45,7 +45,7 @@ class ProductsController extends Controller
       "name" => "required|unique:products",
       "cost" => "required|numeric",
       "profit_margin" => "required|numeric",
-      "category_id" => "required|numeric|between:1,3"
+      "category_id" => "required|numeric|between:1,10"
     ];
     $messages = [
       "required" => "El :attribute es requerido!",
@@ -55,17 +55,21 @@ class ProductsController extends Controller
     ];
     $request->validate($rules, $messages);
 
+    $extensionImagen = $request->file('fotoPath')->getClientOriginalExtension();
+
+    $fotoPath = $request->file('fotoPath')->storeAs('productos', uniqid() . "." . $extensionImagen, 'public');
+
     $producto = \App\Product::create([
       'name' => $request ->input('name'),
       'cost' => $request ->input('cost'),
       'profit_margin' => $request ->input('profit_margin'),
-      'category_id' => $request ->input('category_id'),
+      'fotopath' => $fotoPath
     ]);
 
     $category = \App\Category::find($request->input('category_id'));
 
-    $product->category()->associate($category);
-    $product->save();
+    $producto->category()->associate($category);
+    $producto->save();
 
     return redirect('/productos');
   }

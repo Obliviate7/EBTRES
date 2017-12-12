@@ -7,6 +7,7 @@
   </head>
   <body>
     <h1>{{$product->name}}</h1>
+    <img src="{{ asset('storage/' . $product->fotopath) }}" alt="">
     <h4>Categoria: {{$category->name}}</h4>
     <p>Costo: ${{$product->cost}}</p>
     <p>Final ${{$product->getPrice()}}</p>
