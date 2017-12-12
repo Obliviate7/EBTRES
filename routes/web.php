@@ -37,6 +37,8 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/faq', 'HomeController@faq')->name('faq');
+
 Route::get('/productos','ProductsController@index');
 
 Route::get('/productos/agregar', 'ProductsController@create')->middleware('checkname:admin');

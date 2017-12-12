@@ -33,7 +33,7 @@
            <li><a href="#">MUJERES</a></li>
            <li><a href="#">HOMBRES</a></li>
            <li><a href="#">MARCAS</a></li>
-           <li><a href="faq.php">FAQ'S</a></li>
+           <li><a href="{{ url('/faq') }}">FAQ'S</a></li>
 
          </ul>
            <ul class="nav navbar-nav navbar-right">
