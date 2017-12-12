@@ -19,12 +19,12 @@ Route::get('/', function () {
 // - Auth
 // Authentication Routes...
 Route::get('ingresar', 'Auth\LoginController@showLoginForm')->name('login');
-Route::post('login', 'Auth\LoginController@login');
+Route::post('ingresar', 'Auth\LoginController@login');
 Route::post('desloguear', 'Auth\LoginController@logout')->name('logout');
 
 // Registration Routes...
 Route::get('registro', 'Auth\RegisterController@showRegistrationForm')->name('register');
-Route::post('register', 'Auth\RegisterController@register');
+Route::post('registro', 'Auth\RegisterController@register');
 
 // Password Reset Routes...
 Route::get('password/resetear', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
@@ -39,12 +39,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/productos','ProductsController@index');
 
-Route::get('/productos/agregar', 'ProductsController@create');
-Route::post('/productos/agregar', 'ProductsController@store');
+Route::get('/productos/agregar', 'ProductsController@create')->middleware('checkname:admin');
+Route::post('/productos/agregar', 'ProductsController@store')->middleware('checkname:admin');
 
 Route::get('/productos/{id}', 'ProductsController@show');
 
 Route::delete('/productos/{id}', 'ProductsController@destroy');
 
-Route::get('/productos/{id}/edit', 'ProductsController@edit');
+Route::get('/productos/{id}/edit', 'ProductsController@edit')->middleware('checkname:admin');
 Route::patch('/productos/{id}', 'ProductsController@update');

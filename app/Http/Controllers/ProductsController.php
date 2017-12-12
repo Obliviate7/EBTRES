@@ -103,7 +103,8 @@ class ProductsController extends Controller
     $product->save();
 
     return redirect('/productos/' . $id);
-
   }
+
+
 
 }
