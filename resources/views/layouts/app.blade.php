@@ -38,16 +38,21 @@
          </ul>
            <ul class="nav navbar-nav navbar-right">
                 @if(Auth::check())
-               <li>
-                 <a  href="myProfile.php"><span class="logButtons glyphicon glyphicon-pencil">{{Auth::user()->name}} </a>
-               </li>
-               <li>
-                 <a  href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><span class="logButtons glyphicon glyphicon-user"> CERRAR SESION</a>
 
-                   <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-               </li>
+               <li>
+                   <a href="/cart"><i class="glyphicon glyphicon-shopping-cart"></i></a></li>
+                 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">{{Auth::user()->name}}</a>
+                    <ul class="dropdown-menu">
+                       <li><a href="/user/orders"><i class="icon-envelope"></i> MIS COMPRAS </a></li>
+                       <li><a href="myProfile.php"><span class="logButtons glyphicon glyphicon-pencil"> PERFIL </a></li>
+                         <li class="divider"></li>
+                         <li>
+                           <a  href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><span class="logButtons glyphicon glyphicon-user"> CERRAR SESION</a>
+                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
+                         </li>
+                   </ul>
+                </li>
+
                 @else
                <li>
                  <a href="{{ url('/registro') }}"><span class="logButtons  glyphicon glyphicon-user"> REGISTRATE</a>
