@@ -8,7 +8,7 @@ class ProductsController extends Controller
 {
   public function index()
   {
-  	$products = \App\Product::all();
+  	$products = \App\Product::paginate(5);
 
   	$variables = [
   		"products" => $products,
