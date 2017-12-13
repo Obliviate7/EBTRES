@@ -41,7 +41,7 @@
 
                <li>
                    <a href="/cart"><i class="glyphicon glyphicon-shopping-cart"></i></a></li>
-                 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">{{Auth::user()->name}}</a>
+                 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Hola {{Auth::user()->name}}!</a>
                     <ul class="dropdown-menu">
                        <li><a href="/user/orders"><i class="icon-envelope"></i> MIS COMPRAS </a></li>
                        <li><a href="myProfile.php"><span class="logButtons glyphicon glyphicon-pencil"> PERFIL </a></li>
