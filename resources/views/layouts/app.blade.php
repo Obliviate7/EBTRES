@@ -30,9 +30,7 @@
        </button>
        <div class="collapse navbar-collapse" id="myNavbar" roll="navigation">
          <ul class="nav navbar-nav">
-           <li><a href="#">MUJERES</a></li>
-           <li><a href="#">HOMBRES</a></li>
-           <li><a href="#">MARCAS</a></li>
+           <li><a href="{{ url('/productos') }}">ARTICULOS</a></li>
            <li><a href="{{ url('/faq') }}">FAQ'S</a></li>
 
          </ul>
@@ -43,7 +41,7 @@
                    <a href="/cart"><i class="glyphicon glyphicon-shopping-cart"></i></a></li>
                  <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Hola {{Auth::user()->name}}!</a>
                     <ul class="dropdown-menu">
-                       <li><a href="/user/orders"><i class="icon-envelope"></i> MIS COMPRAS </a></li>
+                       <li><a href="/user/orders"><span class="logButtons glyphicon glyphicon-list-alt"> MIS COMPRAS </a></li>
                        <li><a href="myProfile.php"><span class="logButtons glyphicon glyphicon-pencil"> PERFIL </a></li>
                          <li class="divider"></li>
                          <li>

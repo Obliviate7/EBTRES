@@ -15,7 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/', 'HomeController@index');
 // - Auth
 // Authentication Routes...
 Route::get('ingresar', 'Auth\LoginController@showLoginForm')->name('login');
@@ -50,3 +49,11 @@ Route::delete('/productos/{id}', 'ProductsController@destroy');
 
 Route::get('/productos/{id}/edit', 'ProductsController@edit')->middleware('checkname:admin');
 Route::patch('/productos/{id}', 'ProductsController@update');
+
+Route::post('/cart/add', array('before'=>'auth.basic','uses'=>'CartController@postAddToCart'));
+Route::get('/cart/borrar/{id}', array('before'=>'auth.basic','as'=>'delete_product_from_cart','uses'=>'CartController@getDelete'));
+Route::get('/cart', array('before'=>'auth.basic','as'=>'cart','uses'=>'CartController@getIndex'));
+
+
+Route::post('/order', array('before'=>'auth.basic','uses'=>'OrderController@postOrder'));
+Route::get('/user/orders', array('before'=>'auth.basic','uses'=>'OrderController@getIndex'));

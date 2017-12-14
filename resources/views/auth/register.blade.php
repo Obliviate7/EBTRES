@@ -73,7 +73,7 @@
   				<input id="password-confirm" class="form-control conf-pass" type="password" name="password_confirmation" placeholder="********">
   			</div>
 
-  			<button type="submit" class="btn btn-primary">
+  			<button type="submit" class="btn btn-lg btn-primary btn-block submitLog">
   					Registrar
   			</button>
   		</form>

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Category;
 
 class CategoriesSeeder extends Seeder
 {
@@ -11,8 +12,12 @@ class CategoriesSeeder extends Seeder
      */
      public function run()
      {
-         factory(\App\Category::class, 5)->create()->each(function ($elem) {
-             $elem->products()->saveMany(factory(\App\Product::class, 5)->make());
-         });
-     }
+        Category::create(array(
+            'name' => 'Mujeres',
+        ));
+
+        Category::create(array(
+            'name' => 'Hombre',
+        ));
+    }
 }
