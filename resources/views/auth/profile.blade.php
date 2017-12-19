@@ -35,7 +35,7 @@
   			@endif
   		</div>
 
-
+ 
   			  <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
   			<div class="form-group">
   				<label for="email">Email: </label>

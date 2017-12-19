@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-  <div class="container contLogin">
-    <div class="page-header page-headerLog">
-      <h2 class="titleLogin">Ingresar</h2>
+  <div class="container containerReg">
+    <div class="page-header">
+      <h2 class="titleRegister">Ingresar</h2>
     </div>
-
+<div class="">
     <form  action="{{ route('login') }}" method="POST" enctype="multipart/form-data">
         {{ csrf_field() }}
-      <div class="container contLogin">
+
   <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
 
       <div class="form-group">
